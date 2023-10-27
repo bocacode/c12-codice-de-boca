@@ -3,15 +3,15 @@ import { useState } from 'react'
 function SingleMenuComponent(props) {
 	console.log('props ->', props)
 	return (
-		<>
+		<div className='menu-item'>
 			<h3>{props.title}</h3>
 			<p>{props.description}</p>
-		</>
+		</div>
 	)
 }
 
 export default function Home() {
-	const [menuItems, setMenuItems] = useState(['hotdog', 'burger']) // = [stateVar, setter]
+	const [menuItems, setMenuItems] = useState() // = [stateVar, setter]
 
 	// 1. fetch data - DONE
 	// 2. get array of objects - DONE
@@ -23,11 +23,7 @@ export default function Home() {
 	// 3.3.1 Map over the array of objects
 	// 3.3.2 return each item so that it displays on the browser
 
-	console.log('menuItems ->', menuItems)
-
 	const handleBtnClick = () => {
-		console.log('hey class from a function')
-
 		fetch('https://codice-boca.web.app/menu')
 			.then(res => res.json()) // contacting the API
 			.then(data => setMenuItems(data)) // get clean data form res
@@ -35,16 +31,19 @@ export default function Home() {
 	}
 
 	return (
-		<>
-			<button onClick={() => handleBtnClick()}>get data</button>
-			{menuItems &&
-				menuItems.map(singleItem => {
-					return (
-						<div>
-							<SingleMenuComponent title={singleItem.title} description={singleItem.description} />
-						</div>
-					)
-				})}
-		</>
+		<section className='menu-items'>
+			{!menuItems
+					// if no menu items, show button
+					? <button onClick={() => handleBtnClick()}>get data</button>
+					// otherwise show menu items
+					: menuItems.map(singleItem => {
+							return (
+									<SingleMenuComponent
+										title={singleItem.title}
+										description={singleItem.description} />
+							)
+						})
+			}
+		</section>
 	)
 }

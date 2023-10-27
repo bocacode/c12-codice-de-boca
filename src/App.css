@@ -16,6 +16,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 0px -190px;
+  background-color: #fff;
   width: 100%;
   max-width: 1024px;
   padding: 0 15px;
@@ -43,4 +44,21 @@ h1 {
   font-weight: 600;
   text-align: center;
   text-shadow: 0 0 25px rgb(0, 0, 0 / 25%);
+}
+
+.menu-items {
+  max-width: 1024px;
+  margin: 5rem auto;
+  column-count: 2;
+  column-gap: 20px;
+  padding: 0 5rem;
+}
+
+.menu-item {
+  page-break-inside: avoid;
+  padding: 0 1em 1em;
+}
+
+.menu-item > p {
+  font-size: 15px;
 }
