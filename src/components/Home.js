@@ -35,8 +35,10 @@ export default function Home() {
 	}
 
 	return (
-		<div>
-			<h2>I'm Home component</h2>
+		
+		<>
+			
+			
 			<button onClick={() => handleBtnClick()}>get data</button>
 			{menuItems &&
 				menuItems.map(singleItem => {
@@ -47,11 +49,11 @@ export default function Home() {
 					return (
 						<div>
 							<SingleMenuComponent title={singleItem.title} description={singleItem.description} />
-							{/* <h2>{singleItem.title}</h2>
+			{/* <h2>{singleItem.title}</h2>
 							<p>{singleItem.description}</p> */}
 						</div>
 					)
 				})}
-		</div>
+		</>
 	)
 }
