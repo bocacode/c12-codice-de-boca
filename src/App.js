@@ -1,12 +1,14 @@
 import './App.css'
 import Home from './components/Home'
+import Hero from './components/hero'
 
 function App() {
 	return (
 		<>
-			<div>Welcome to Codice d' Boca</div>
+			<main className='container'>
       <Home />
-		</>
+	  <Hero/>
+		</main></>
 	)
 }
 
